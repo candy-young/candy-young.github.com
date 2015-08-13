@@ -1,74 +1,164 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JS简易日历</title>
-<link href="zns_style.css" rel="stylesheet" type="text/css" />
+<!doctype html>
+<!DCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>跪舔吴亦凡</title>
+<style>
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	position:relative;
+	background:#000;
+}
+input{
+	border:none;
+	outline:none;
+	width:100px;
+	font-size:20px;
+	padding:10px;
+	text-align:center;
+	background:#fff;
+	height:40px;
+	
+	
+}
+h1{
+	text-align:center;
+	line-height:70px;
+	height:70px;
+	margin:0px;
+	background:#FFF;
+	
+	
+}
+h5{
+	text-align:center;
+	//line-height:40px;
+	//height:40px;
+	margin:0px;
+	background:url('img/4.jpg') center;
+	background-size:2000px 800px;
+	color:#fff;
+}
+ul{
+	list-style:none;
+}
+li{
+	width:130px;
+	height:160px;
+	color:#fff;
+	text-align:center;
+	background:#000;
+	border:none;
+	position:absolute;
+	line-height:160px;
+	font-size:30px;
+		
+}
+#button{
+	border:2px solid #000;
+}
+</style>
+
 <script>
-window.onload=function ()
-{
-	var arr=
-	[
-	   '快过年了，大家可以商量着去哪玩吧~',
-	   '2月开始了哟',
-	   '3月开始了哟',
-	   '4月开始了哟',
-	   '5月开始了哟',
-	   '6月开始了哟',
-	   '7月开始了哟',
-	   '8月开始了哟',
-	   '9月开始了哟',
-	   '10月开始了哟',
-	   '11月开始了哟',
-	   '12月开始了哟',
-	]
+window.onload = function (){
+	document.body.innerHTML = '<h5>这是一个测试<br/>一个关于帅的测试<br/>首先你可以在心中默念一个数字<br/>然后你需要召唤出帅气的吴亦凡，想要多少本大仙都可以帮你召唤出来<br/>当召唤出吴亦凡以后，你就可以根据你心里默念的那个数字翻牌了<br/>测试完了记得偷偷告诉我结果哟O(∩_∩)O~~<br/>PS:啊啊啊啊啊~~吴亦凡好帅！！！！！！！我不管！就是好帅！！！(╯‵□′)╯︵┻━┻</h5><h1>想看到（<input id="text1" type="text" />）只吴亦凡，（<input id="text2" type="text" />）只排成一行&nbsp&nbsp<input id="button" type="button" value="OK" /></h1>'     
+							  +'<ul></ul>';
 	
-	var oDiv=document.getElementById('tab');
-	var aLi=oDiv.getElementsByTagName('li');
-	var aTxt=oDiv.getElementsByTagName('div')[0];
+	var oTxt1 = document.getElementById('text1');
+	var oTxt2 = document.getElementById('text2');
+	var oBtn = document.getElementById('button');
+	var oUl = document.getElementsByTagName('ul')[0];
+	var oLi = document.getElementsByTagName('li');
+	var arr = [
+	'img/1.jpg',
+	'img/2.jpg',
+	'img/3.jpg',
+	'img/4.jpg',
+	'img/5.jpg',
+	'img/4.png',
+	'img/6.jpg',
+	'img/7.jpg',
+	'img/8.jpg',
+	'img/9.jpg',
+	'img/10.jpg',
+	];
 	
-	for(var i=0;i<aLi.length;i++)
-	{
-		aLi[i].index=i;
-		aLi[i].onmouseover=function ()
-		{
-			for(var i=0;i<aLi.length;i++)
-			{
-				aLi[i].className='';
-			}
-			this.className='active';
+	
+	
+
+	
+	oBtn.onclick = function (){
+		oUl.innerHTML = '';//开始前一定要清空，不要有BUG（T_T）
+		var i = parseInt(oTxt1.value);
+	    var j = parseInt(oTxt2.value);
+		var num = 0;
+		var cont = 0;
+		var h = 0;
+		//alert(i);
+		if(j>8){
+			alert('为了美观，每行最好不要超过8个哟~');
+		}else{
+			for( var k=0; k<i; k++ ){
 			
-			aTxt.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+arr[this.index]+'</p>';                                 
-		};
-	}
-};
-
+				  oUl.innerHTML += '<li>'+(k+1)+'</li>';
+		  
+				  oLi[k].style.top = 220+num*170+'px';
+				  oLi[k].style.left = 60+cont*150+'px';
+				  oLi[k].style.background = 'url('+arr[h]+') center no-repeat #fff';
+				  oLi[k].style.backgroundSize = '120px 150px';
+				  
+				  
+				  
+				  cont++;
+				  h++;
+				  
+				  if( (k+1)%j == 0 ){
+					  num++;
+					  cont = 0;
+				  }
+				  
+				  if(h>arr.length-1){
+					  h = 0;
+				  }
+				  
+			  }
+			  for( var k=0; k<oLi.length; k++ ){
+				  oLi[k].index = k;
+				  oLi[k].onmousemove = function(){
+					  this.style.backgroundSize = '0px 0px';
+					  this.style.backgroundColor = '#900';
+					  if(this.index%7 == 1){
+						  this.innerHTML = '蠢';
+					  }else if(this.index%3 == 1){
+						  this.innerHTML = '逗';
+					  }else if(this.index%5 == 1){
+						  this.innerHTML = '帅';
+					  }else{
+						 this.innerHTML = '丑'; 
+					  }
+					  
+					  this.style.fontSize = '40px';
+					  this.style.color = '#fff';
+				  }
+				  oLi[k].onmouseout = function(){
+					  
+					  this.style.backgroundSize = '120px 150px';
+					  this.style.color = '#fff';
+					  this.innerHTML = this.index+1;
+					  this.style.fontSize = '30px';
+					  this.style.backgroundColor = '#fff';
+				  }
+				  
+				  
+			  }	  
+		  }		  
+		}	
+}
 </script>
-</head>
-
 <body>
-<div id="tab" class="calendar">
 
-  <ul>
-    <li class="active"><h2>1</h2><p>JAN</p></li>
-    <li><h2>2</h2><p>FER</p></li>
-    <li><h2>3</h2><p>MAR</p></li>
-    <li><h2>4</h2><p>APR</p></li>
-    <li><h2>5</h2><p>MAY</p></li>
-    <li><h2>6</h2><p>JUN</p></li>
-    <li><h2>7</h2><p>JUL</p></li>
-    <li><h2>8</h2><p>AUG</p></li>
-    <li><h2>9</h2><p>SEP</p></li>
-    <li><h2>10</h2><p>OCT</p></li>
-    <li><h2>11</h2><p>NOV</p></li>
-    <li><h2>12</h2><p>DEC</p></li>
-  </ul>
-   
-  <div class="text">
-    <h2>1月活动</h2>
-    <p>快过年了，大家可以商量着去哪玩吧~</p>
-  </div>
-     
-</div>
 </body>
 </html>
