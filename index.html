@@ -30,10 +30,12 @@ h1{
 	height:70px;
 	margin:0px;
 	background:#FFF;
+	width:100%;
 	
 	
 }
-h5{
+h4{
+	width:100%;
 	text-align:center;
 	//line-height:40px;
 	//height:40px;
@@ -41,6 +43,7 @@ h5{
 	background:url('img/4.jpg') center;
 	background-size:2000px 800px;
 	color:#fff;
+	
 }
 ul{
 	list-style:none;
@@ -64,7 +67,7 @@ li{
 
 <script>
 window.onload = function (){
-	document.body.innerHTML = '<h5>这是一个测试<br/>一个关于帅的测试<br/>首先你可以在心中默念一个数字<br/>然后你需要召唤出帅气的吴亦凡，想要多少本大仙都可以帮你召唤出来<br/>当召唤出吴亦凡以后，你就可以根据你心里默念的那个数字翻牌了<br/>测试完了记得偷偷告诉我结果哟O(∩_∩)O~~<br/>PS:啊啊啊啊啊~~吴亦凡好帅！！！！！！！我不管！就是好帅！！！(╯‵□′)╯︵┻━┻</h5><h1>想看到（<input id="text1" type="text" />）只吴亦凡，（<input id="text2" type="text" />）只排成一行&nbsp&nbsp<input id="button" type="button" value="OK" /></h1>'     
+	document.body.innerHTML = '<h4>这是一个测试<br/>一个关于帅的测试<br/>首先你可以在心中默念一个数字<br/>然后你需要召唤出帅气的吴亦凡，想要多少本大仙都可以帮你召唤出来<br/>当召唤出吴亦凡以后，你就可以根据你心里默念的那个数字翻牌了<br/>测试完了记得偷偷告诉我结果哟O(∩_∩)O~~<br/>PS:啊啊啊啊啊~~吴亦凡好帅！！！！！！！我不管！就是好帅！！！(╯‵□′)╯︵┻━┻</h4><h1>召唤（<input id="text1" type="text" />）只吴亦凡，想要（<input id="text2" type="text" />）只排成一行&nbsp&nbsp<input id="button" type="button" value="OK" /></h1>'     
 							  +'<ul></ul>';
 	
 	var oTxt1 = document.getElementById('text1');
@@ -99,13 +102,19 @@ window.onload = function (){
 		var h = 0;
 		//alert(i);
 		if(j>8){
-			alert('为了美观，每行最好不要超过8个哟~');
-		}else{
+			alert('为了更好地测试，每行最好不要超过8个哟~');
+		}else if(j == 0){
+			alert('(╯‵□′)╯︵┻━┻，0个一行是什么鬼！！不用测了，你的结果是蠢');
+		}
+		else if(j > i){
+			alert('(╯‵□′)╯︵┻━┻，你数学是体育老师教的吗！！不用测了，你的结果是逗');
+		}
+		else{
 			for( var k=0; k<i; k++ ){
 			
 				  oUl.innerHTML += '<li>'+(k+1)+'</li>';
 		  
-				  oLi[k].style.top = 220+num*170+'px';
+				  oLi[k].style.top = 280+num*180+'px';
 				  oLi[k].style.left = 60+cont*150+'px';
 				  oLi[k].style.background = 'url('+arr[h]+') center no-repeat #fff';
 				  oLi[k].style.backgroundSize = '120px 150px';
